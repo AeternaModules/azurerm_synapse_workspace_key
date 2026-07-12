@@ -1,3 +1,7 @@
+output "synapse_workspace_keys_id" {
+  description = "Map of id values across all synapse_workspace_keys, keyed the same as var.synapse_workspace_keys"
+  value       = { for k, v in azurerm_synapse_workspace_key.synapse_workspace_keys : k => v.id }
+}
 output "synapse_workspace_keys_active" {
   description = "Map of active values across all synapse_workspace_keys, keyed the same as var.synapse_workspace_keys"
   value       = { for k, v in azurerm_synapse_workspace_key.synapse_workspace_keys : k => v.active }
